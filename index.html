@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/jsx">
+	    var LikeButton = React.createClass({
+	      getInitialState: function() {
+	      	var number = 33;
+	        return {
+	        	total: number
+	        }
+	      },
+	      increase: function(event) {
+	      	var total = this.state.total;
+	        this.setState({total: total + 1});
+	      },
+	      decrease: function(event){
+	      	var total = this.state.total;
+	      	this.setState({total: total - 1})
+	      },
+	      render: function() {
+	        var total = this.state.total;
+	        return (
+	          <div>
+	            The current total is {total}. <br />
+	            <button onClick={this.increase}>Increase</button>
+	            <button onClick={this.decrease}>Decrease</button>
+	          </div>
+	        );
+	      }
+	    });
+
+	    React.render(
+	      <LikeButton />,
+	      document.getElementById('example')
+	    );
+    </script>
+  </body>
+</html>
